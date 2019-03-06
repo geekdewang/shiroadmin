@@ -22,7 +22,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #3f2766;
 }
 .form {
   display: -webkit-box;
@@ -100,7 +99,6 @@ main {
   top: 0;
   height: 100%;
   width: 100%;
-  background: #4d317a;
   z-index: -4;
   border-radius: 50%;
   -webkit-transition: all 1.5s ease 0.3s;

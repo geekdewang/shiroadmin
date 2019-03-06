@@ -1,17 +1,18 @@
 package com.qf.shiroadmin.dao;
 
+import com.qf.shiroadmin.entity.Permission;
 import com.qf.shiroadmin.entity.RolePermission;
 
+import java.util.List;
+
 public interface RolePermissionMapper {
-    int deleteByPrimaryKey(Integer id);
+
+    int deleteById(Integer id);
+
+    int deleteByRid(Integer Rid);
 
     int insert(RolePermission record);
 
-    int insertSelective(RolePermission record);
+    List<Permission> selectByRid(Integer rid);
 
-    RolePermission selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(RolePermission record);
-
-    int updateByPrimaryKey(RolePermission record);
 }

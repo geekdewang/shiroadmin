@@ -1,17 +1,21 @@
 package com.qf.shiroadmin.dao;
 
 import com.qf.shiroadmin.entity.Role;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface RoleMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteById(Integer id);
 
     int insert(Role record);
 
-    int insertSelective(Role record);
+    Role selectById(Integer id);
 
-    Role selectByPrimaryKey(Integer id);
+    int updateById(Role record);
 
-    int updateByPrimaryKeySelective(Role record);
+    Long selectCount();
 
-    int updateByPrimaryKey(Role record);
+    //分页查询
+    List<Role> selectByPage(@Param("index")int index, @Param("count")Integer limit);
 }

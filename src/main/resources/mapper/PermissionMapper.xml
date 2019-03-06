@@ -13,16 +13,18 @@
   <sql id="Base_Column_List">
     id, type, name, icon, parentid, level, pems
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_permission
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+
+  <delete id="deleteById" parameterType="java.lang.Integer">
     delete from sys_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.qf.shiroadmin.entity.Permission">
     insert into sys_permission (id, type, name, 
       icon, parentid, level, 
@@ -31,56 +33,8 @@
       #{icon,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER}, #{level,jdbcType=SMALLINT}, 
       #{pems,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.qf.shiroadmin.entity.Permission">
-    insert into sys_permission
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="type != null">
-        type,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="icon != null">
-        icon,
-      </if>
-      <if test="parentid != null">
-        parentid,
-      </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="pems != null">
-        pems,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=SMALLINT},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="icon != null">
-        #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="parentid != null">
-        #{parentid,jdbcType=INTEGER},
-      </if>
-      <if test="level != null">
-        #{level,jdbcType=SMALLINT},
-      </if>
-      <if test="pems != null">
-        #{pems,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qf.shiroadmin.entity.Permission">
+
+  <update id="updateByIdSelective" parameterType="com.qf.shiroadmin.entity.Permission">
     update sys_permission
     <set>
       <if test="type != null">
@@ -104,14 +58,5 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qf.shiroadmin.entity.Permission">
-    update sys_permission
-    set type = #{type,jdbcType=SMALLINT},
-      name = #{name,jdbcType=VARCHAR},
-      icon = #{icon,jdbcType=VARCHAR},
-      parentid = #{parentid,jdbcType=INTEGER},
-      level = #{level,jdbcType=SMALLINT},
-      pems = #{pems,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
 </mapper>

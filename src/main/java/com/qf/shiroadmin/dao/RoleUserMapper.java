@@ -1,17 +1,19 @@
 package com.qf.shiroadmin.dao;
 
+import com.qf.shiroadmin.entity.Role;
 import com.qf.shiroadmin.entity.RoleUser;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface RoleUserMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteById(Integer id);
+    int deleteByUid(Integer id);
 
     int insert(RoleUser record);
 
-    int insertSelective(RoleUser record);
+    List<Role> selectByUid(Integer Uid);
 
-    RoleUser selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(RoleUser record);
-
-    int updateByPrimaryKey(RoleUser record);
+    //实现批量新增
+    int insertBath(@Param("uid")Integer uid,@Param("rids") List<Integer> rids);
 }

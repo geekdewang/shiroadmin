@@ -16,6 +16,7 @@ public class ShiroRealm extends AuthorizingRealm {
     //授权  查询登录用户的所有权限，并返回
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+
         return null;
     }
 
